@@ -19,16 +19,20 @@ body {
 
 /*
 Allignement des elt de la barre de navigation
+Par défaut : affichage verticale
 */
 .navbar {
     background-color: #000;
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
+    justify-content: space-between; /* Espace entre les éléments */
+    align-items: center;
+    padding: 15px 20px;
     position: fixed; /* Fixe la barre */
     width: 100%;      /* Prend toute la largeur */
     top: 0;           /* Collée en haut */
     z-index: 1000;    /* Pour passer devant les autres éléments */
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+    height: 60px; /* Hauteur de la barre */
 }
 
 /*
@@ -37,6 +41,7 @@ Définition du style d'affichage de la barre de navigation
 .nav-links {
     list-style: none;
     display: flex;
+    top: 60px; /* Juste en dessous de la navbar */
 }
 
 /*
@@ -53,6 +58,11 @@ Paramétrage des boutons de la barre de navigation
     color: #fff;
     text-decoration: none;
     transition: color 0.3s;
+    font-size: 1.2rem;
+}
+
+.menu-toggle {
+    display: none; /* Masqué par défaut */
 }
 
 /*
@@ -61,6 +71,34 @@ Animation de survol pour les elt de la barre de navigation
 .nav-links a:hover {
     color: #00aaff;
 }
+
+/* Icône menu burger cachée sur desktop */
+
+/* RESPONSIVE pour tablettes et téléphones */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Affiché sur mobile */
+        cursor: pointer; /* Curseur en main */
+        font-size: 2rem; /* Taille de l'icône */
+        color: #fff; /* Couleur de l'icône */
+    }
+
+    .nav-links {
+        display: none; /* Masqué par défaut */
+        flex-direction: column;
+        background-color: #000; /* Fond noir */
+        position: absolute; /* Positionné par rapport à la navbar */
+        top: 80px; /* Juste en dessous de la navbar */
+        right: 0; /* Aligné à droite */
+        width: 100%; /* Prend toute la largeur */
+        padding: 10px 0; /* Espacement interne */
+    }
+
+    .nav-links.nav-active {
+        display: flex; /* Affiché quand actif */
+    }
+}
+
 /*
 Paramètre de la page d'acceuil
 */
@@ -153,3 +191,4 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+

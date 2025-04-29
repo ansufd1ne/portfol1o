@@ -13,6 +13,13 @@
     <header>
         <nav class="navbar">
             <div class="logo">Ansufdine Ousseni</div>
+
+            <!-- icône menu burger -->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <!-- Listes des liens -->
             <ul class="nav-links">
                 <li> <a href="#accueil">Accueil</a></li>
                 <li><a href="#a-propos">À propos</a></li>
@@ -69,5 +76,14 @@
     <footer>
         <p>© 2025 Ansufdine Ousseni. Tous droits réservés.</p>
     </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+        });
+    </script>
 </body>
 </html>
