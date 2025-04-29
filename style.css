@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+/*
+Praramètre du corps de la page
+*/
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #111;
+    color: #fff;
+    
+}
+
+/*
+Allignement des elt de la barre de navigation
+*/
+.navbar {
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    position: fixed; /* Fixe la barre */
+    width: 100%;      /* Prend toute la largeur */
+    top: 0;           /* Collée en haut */
+    z-index: 1000;    /* Pour passer devant les autres éléments */
+}
+
+/*
+Définition du style d'affichage de la barre de navigation
+*/
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+/*
+Espacement entre les elt de la barre de navigation
+*/
+.nav-links li {
+    margin-left: 20px;
+}
+
+/*
+Paramétrage des boutons de la barre de navigation
+*/
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/*
+Animation de survol pour les elt de la barre de navigation
+*/
+.nav-links a:hover {
+    color: #00aaff;
+}
+/*
+Paramètre de la page d'acceuil
+*/
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('fon.JPG') center/cover no-repeat;
+    text-align: center;
+}
+
+/*
+Modification de la taille titre
+*/
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+/*
+Modification de la taille du texte
+*/
+.hero p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/*
+Paramètredes sections
+*/
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/*
+Paramètre des sous titre
+*/
+h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #00aaff;
+}
+
+/*
+Paramètre du bolck de projets
+*/
+.project-card {
+    background-color: #222;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+/*
+Effet hover sur les projets
+*/
+.project-card:hover {
+    background-color: #333;
+    transform: scale(1.02);
+    transition: 0.3s;
+}
+
+/*
+Suppresion des points de la liste
+*/
+.skills ul {
+    list-style: none;
+}
+
+/*
+Paramètre de la marge
+*/
+.skills li {
+    margin: 10px 0;   
+}
+
+
+/*
+Paramètre du footer
+*/
+footer {
+    background-color: #000;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
