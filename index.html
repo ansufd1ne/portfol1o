@@ -103,29 +103,36 @@
             overlay.style.display = 'block';
             menuIcon.classList.remove('fa-bars');
             menuIcon.classList.add('fa-times');
-            document.body.classList.add('menu-open'); // ✅ ajoute une classe au <body>
+            document.body.classList.add('menu-open');
         }
-        
+    
         function closeMenu() {
             sideMenu.classList.remove('active');
             overlay.style.display = 'none';
             menuIcon.classList.remove('fa-times');
             menuIcon.classList.add('fa-bars');
-            document.body.classList.remove('menu-open'); // ✅ la retire
+            document.body.classList.remove('menu-open');
         }
-        
     
-        // Le problème venait d'ici : on écoute l'élément parent + icône
-        menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation(); // évite les bugs si clics imbriqués
+        function toggleMenu() {
             if (sideMenu.classList.contains('active')) {
                 closeMenu();
             } else {
                 openMenu();
             }
-        });
+        }
     
+        // Clic sur menu burger ou croix
+        menuToggle.addEventListener('click', toggleMenu);
+        menuIcon.addEventListener('click', toggleMenu);
+    
+        // Clic sur l'overlay = fermeture
         overlay.addEventListener('click', closeMenu);
+    
+        // 🔐 Sécurité : fermer le menu au chargement
+        window.addEventListener('DOMContentLoaded', () => {
+            closeMenu();
+        });
     </script>
 </body>
 </html>

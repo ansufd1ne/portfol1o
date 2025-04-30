@@ -327,3 +327,7 @@ body.menu-open #menuIcon {
     transform: rotate(90deg);
 }
 
+.side-menu {
+    right: -100%; /* Cacher hors de l'écran par défaut */
+}
+
