@@ -24,6 +24,31 @@ body {
     text-decoration: none;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    z-index: 998;
+}
+
+
+
+.side-menu.active {
+    right: 0;
+}
+
+
+
+.close-btn {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #000;
+}
+
 /*
 Allignement des elt de la barre de navigation
 Par défaut : affichage verticale
@@ -45,39 +70,77 @@ Par défaut : affichage verticale
 /*
 Définition du style d'affichage de la barre de navigation
 */
-.nav-links {
+.side-menu-links {
     list-style: none;
-    display: flex;
-    top: 60px; /* Juste en dessous de la navbar */
+    margin-top: 40px; /* Juste en dessous de la navbar */
 }
+
 
 /*
 Espacement entre les elt de la barre de navigation
 */
-.nav-links li {
-    margin-left: 20px;
+.side-menu-links li {
+    margin: 20px 0;
+    text-align: left; /* Alignement à gauche */
+
 }
 
 /*
 Paramétrage des boutons de la barre de navigation
 */
-.nav-links a {
-    color: #fff;
+.side-menu-links a {
+    color: #000;
     text-decoration: none;
     transition: color 0.3s;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    padding: 10px 0;
 }
 
 .menu-toggle {
     display: none; /* Masqué par défaut */
 }
 
+
+
 /*
 Animation de survol pour les elt de la barre de navigation
 */
-.nav-links a:hover {
+.side-menu-links a:hover {
     color: #00aaff;
 }
+
+@media (min-width: 769px) {
+
+    .nav-links {
+        display: flex; /* Affiché sur desktop */
+        flex-direction: row; /* Alignement horizontal */
+        list-style: none; /* Pas de puces */
+        margin: 0; /* Pas d'espacement en haut */
+    }
+
+    .nav-links li {
+        margin-left: 20px; /* Espacement entre les éléments */
+
+    }
+
+    .nav-links a {
+        color: #fff; /* Couleur du texte */
+        font-size: 1rem; /* Taille du texte */
+        transition: color 0.3s; /* Transition douce */
+        text-decoration: none; /* Pas de soulignement */
+        padding: 10px 0; /* Espacement interne */
+    }
+
+    .nav-links a:hover {
+        color: #00aaff; /* Couleur au survol */
+    }
+    
+    .side-menu, .overlay, .menu-toggle {
+        display: none; /* Masqué sur desktop */
+    }
+
+}
+
 
 /* Icône menu burger cachée sur desktop */
 
@@ -90,19 +153,51 @@ Animation de survol pour les elt de la barre de navigation
         color: #fff; /* Couleur de l'icône */
     }
 
-    .nav-links {
-        display: none; /* Masqué par défaut */
-        flex-direction: column;
-        background-color: #000; /* Fond noir */
-        position: absolute; /* Positionné par rapport à la navbar */
-        top: 80px; /* Juste en dessous de la navbar */
-        right: 0; /* Aligné à droite */
-        width: 100%; /* Prend toute la largeur */
-        padding: 10px 0; /* Espacement interne */
+    .side-menu {
+        position: fixed;
+        top: 60px; /* Juste en dessous de la navbar */
+        left: 50%;
+        transform: translateX(-50%); /* Centré horizontalement */
+        width: 90%; /* Prend 90% de la largeur */
+        max-width: 600px; /* Largeur max */
+        height: auto; /* Hauteur auto */
+        background: #fff; /* Fond blanc */
+        border-radius: 20px; /* Coins arrondis */
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        z-index: 999; /* Au-dessus des autres éléments */
+        transition: all 0.3s ease; /* Transition douce */
+        padding: 30px 20px; /* Espacement interne */
+
     }
 
-    .nav-links.nav-active {
+    #menuIcon {
+        display: inline-block;
+    }
+
+    .overlay {
+        background: rgba(0, 0, 0, 0.5); /* Fond noir transparent */
+    }
+
+    .side-menu-links {
+        display: flex; /* Affiché sur mobile */
+        flex-direction: column; /* Alignement vertical */
+        gap: 16px; /* Espacement entre les éléments */
+        align-items: flex-start; /* Alignement à gauche */
+        margin-top: 30px;
+    }
+    
+    .side-menu-links a {
+        color: #000; /* Couleur du texte */
+        font-size: 1.5rem; /* Taille du texte */
+        padding: 10px 0; /* Espacement interne */
+        text-decoration: none; /* Pas de soulignement */
+    }
+    .side-menu-links.active {
         display: flex; /* Affiché quand actif */
+    }
+
+    .nav-links {
+        display: none; /* Masqué sur mobile */
     }
 }
 
@@ -222,5 +317,13 @@ footer {
     text-align: center;
     padding: 20px;
     margin-top: 40px;
+}
+
+#menuIcon {
+    transition: transform 0.3s ease;
+}
+
+body.menu-open #menuIcon {
+    transform: rotate(90deg);
 }
 

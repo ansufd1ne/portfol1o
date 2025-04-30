@@ -15,13 +15,12 @@
             <div class="logo"><a href="#accueil">Ansufdine Ousseni</a></div>
 
             <!-- icône menu burger -->
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars" id="menuIcon"></i>
             </div>
 
-            <!-- Listes des liens -->
             <ul class="nav-links">
-                <li> <a href="#accueil">Accueil</a></li>
+                <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#a-propos">À propos</a></li>
                 <li><a href="#projets">Projets</a></li>
                 <li><a href="#competences">Compétences</a></li>
@@ -29,6 +28,20 @@
             </ul>
         </nav>
     </header>
+    <!-- Menu latéral qui s'ouvre -->
+    <div class="overlay" id="overlay"></div>
+
+    <div class="side-menu" id="sideMenu">
+      
+       <!-- Listes des liens -->
+   <ul class="side-menu-links">
+       <li> <a href="#accueil">Accueil</a></li>
+       <li><a href="#a-propos">À propos</a></li>
+       <li><a href="#projets">Projets</a></li>
+       <li><a href="#competences">Compétences</a></li>
+       <li><a href="#contact">Contact</a></li>
+   </ul>
+    </div>
     <main>
         <!-- Page d'accueil -->
         <section id="accueil" class="hero">
@@ -80,12 +93,39 @@
     </footer>
 
     <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-active');
+        const menuToggle = document.getElementById('menuToggle');
+        const menuIcon = document.getElementById('menuIcon');
+        const sideMenu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('overlay');
+    
+        function openMenu() {
+            sideMenu.classList.add('active');
+            overlay.style.display = 'block';
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-times');
+            document.body.classList.add('menu-open'); // ✅ ajoute une classe au <body>
+        }
+        
+        function closeMenu() {
+            sideMenu.classList.remove('active');
+            overlay.style.display = 'none';
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+            document.body.classList.remove('menu-open'); // ✅ la retire
+        }
+        
+    
+        // Le problème venait d'ici : on écoute l'élément parent + icône
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // évite les bugs si clics imbriqués
+            if (sideMenu.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
+    
+        overlay.addEventListener('click', closeMenu);
     </script>
 </body>
 </html>
