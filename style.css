@@ -22,6 +22,7 @@ body {
 .logo a{
     color: #fff;
     text-decoration: none;
+    font-family: 'Arial', sans-serif;
 }
 
 .overlay {
@@ -36,18 +37,6 @@ body {
 }
 
 
-
-.side-menu.active {
-    right: 0;
-}
-
-
-
-.close-btn {
-    font-size: 2rem;
-    cursor: pointer;
-    color: #000;
-}
 
 /*
 Allignement des elt de la barre de navigation
@@ -154,25 +143,31 @@ Animation de survol pour les elt de la barre de navigation
     }
 
     .side-menu {
+        display: none; /* Masqué par défaut */
         position: fixed;
-        top: 60px; /* Juste en dessous de la navbar */
+        top: 50%; /* Juste en dessous de la navbar */
         left: 50%;
-        transform: translateX(-50%); /* Centré horizontalement */
-        width: 90%; /* Prend 90% de la largeur */
+        transform: translate(-50%, -50%); /* Centré */
+        width: 80%; /* Prend 90% de la largeur */
         max-width: 600px; /* Largeur max */
         height: auto; /* Hauteur auto */
         background: #fff; /* Fond blanc */
-        border-radius: 20px; /* Coins arrondis */
+        border-radius: 10px; /* Coins arrondis */
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
         z-index: 999; /* Au-dessus des autres éléments */
-        transition: all 0.3s ease; /* Transition douce */
+        transition: all 0.3s ease; /* Glissement horizontal */
         padding: 30px 20px; /* Espacement interne */
+        flex-direction: column; /* Alignement vertical */
+    }
 
+    .side-menu.active {
+        display: flex !important; /* Affiché quand actif */
     }
 
     #menuIcon {
         display: inline-block;
     }
+
 
     .overlay {
         background: rgba(0, 0, 0, 0.5); /* Fond noir transparent */
@@ -326,8 +321,11 @@ footer {
 body.menu-open #menuIcon {
     transform: rotate(90deg);
 }
+.menu-toggle.active {
+    display: block;
+}
 
-.side-menu {
-    right: -100%; /* Cacher hors de l'écran par défaut */
+.side-menu.active {
+    display: flex;
 }
 

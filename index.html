@@ -7,12 +7,13 @@
     <!-- icône -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/ansuf.png" type="image/png">
     <title>Ansufdine Ousseni - Portfolio</title>
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo"><a href="#accueil">Ansufdine Ousseni</a></div>
+            <div class="logo"><a href="#accueil"><h3>Ansufdine Ousseni</h3></a></div>
 
             <!-- icône menu burger -->
             <div class="menu-toggle" id="menuToggle">
@@ -131,7 +132,11 @@
     
         // 🔐 Sécurité : fermer le menu au chargement
         window.addEventListener('DOMContentLoaded', () => {
-            closeMenu();
+        sideMenu.classList.remove('active');
+        overlay.style.display = 'none';
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
+        document.body.classList.remove('menu-open');
         });
     </script>
 </body>
