@@ -55,35 +55,38 @@
             <div class="projects-grid">
               <!-- Projets 1-->
                 <div class="projects-card">
-                    <img src="img/p1.jpg" alt="Projet 1">
+                    <img src="img/mwoibaco-screen.png" alt="Projet 1">
                     <div class="projects-info">
-                      <h3>Projet 1</h3>
-                      <p>Description du projet 1.</p>
-                      <a href="#" class="btn-primary">Voir le projet</a>
+                      <h3>Création de la boutique Mwoibaco</h3>
+                      <p>Conception de planners et calendriers numériques. Gestion Shopify, marketing, branding.</p>
+                      <a href="https://mwoibaco.com" class="btn-primary" target="_blank">Voir le projet</a>
                     </div>
                     
                 </div>
-
-                <!-- Projets 2-->
-                <div class="projects-card">
-                    <img src="img/p2.jpg" alt="Projet 2">
-                    <div class="projects-info">
-                      <h3>Projet 2</h3>
-                      <p>Description du projet 2.</p>
-                      <a href="#" class="btn-primary">Voir le projet</a>
-                    </div>
-                    
-                </div>
+                <!-- 
                 
-                <!-- Projets 3-->
                 <div class="projects-card">
-                    <img src="img/p3.jpg" alt="Projet 3">
-                    <div class="projects-info">
-                      <h3>Projet 3</h3>
-                      <p>Description du projet 3.</p>
-                      <a href="#" class="btn-primary">Voir le projet</a>
-                    </div>
-                </div>
+                  <img src="img/p2.jpg" alt="Projet 2">
+                  <div class="projects-info">
+                    <h3>Projet 2</h3>
+                    <p>Description du projet 2.</p>
+                    <a href="#" class="btn-primary">Voir le projet</a>
+                  </div>
+                  
+              </div>
+              
+              
+              <div class="projects-card">
+                  <img src="img/p3.jpg" alt="Projet 3">
+                  <div class="projects-info">
+                    <h3>Projet 3</h3>
+                    <p>Description du projet 3.</p>
+                    <a href="#" class="btn-primary">Voir le projet</a>
+                  </div>
+              </div>
+                -->
+                
+              
             </div>
             <!-- Catres des projets -->
         </section>
@@ -166,29 +169,29 @@
           </div>
           
           <div class="social-icons">
-              <a href="#"><i class="fab fa-github"></i></a>
-              <a href="www.linkedin.com/in/ansufdine-ousseni-04ab91362" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://github.com/ansufd1ne"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/ansufdine-ousseni-04ab91362?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" ><i class="fab fa-linkedin-in"></i></a>
           </div>
       </div>
       
       <div class="contact-form">
-          <form>
+          <form id="form">
               <div class="form-group">
                   <label for="name">Nom</label>
-                  <input type="text" id="name" placeholder="Votre nom" required>
+                  <input type="text" name="name" placeholder="Votre nom" required>
               </div>
               
               <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" id="email" placeholder="votre@email.com" required>
+                  <input type="email" name="email" placeholder="votre@email.com" required>
               </div>
               
               <div class="form-group">
                   <label for="message">Message</label>
-                  <textarea id="message" placeholder="Votre message..." rows="5" required></textarea>
+                  <textarea name="message" placeholder="Votre message..." rows="5" required></textarea>
               </div>
               
-              <button type="submit" class="btn-submit">Envoyer</button>
+              <button type="submit" class="btn-submit" id="btn-submit">Envoyer</button>
           </form>
       </div>
   </div>
@@ -202,6 +205,12 @@
      </footer>
 
      <!-- Scripts -->
+     <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+      <script type="text/javascript">
+        emailjs.init('K6ciJxto7nn7uRCng')
+      </script>
      <script>
       // Menu hamburger
 
@@ -243,6 +252,33 @@ navItems.forEach(item => {
       }
     }
   });
+});
+
+
+
+// Fonction pour envoyer le formulaire
+emailjs.init('K6ciJxto7nn7uRCng'); // Ton User ID EmailJS
+
+const btn = document.getElementById('btn-submit');
+
+document.getElementById('form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  btn.innerText = 'Envoie en cours...';
+
+  const serviceID = 'service_52jatnb'; // Remplace par ton vrai Service ID
+  const templateID = 'template_idb72tl'; // Remplace par ton vrai Template ID
+
+  emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.innerText = 'Envoyer';
+      alert('Message envoyé avec succès !');
+      document.getElementById('form').reset(); // Réinitialiser le formulaire
+    }, (err) => {
+      btn.innerText = 'Envoyer';
+      alert('Erreur lors de l\'envoi. Veuillez réessayer.');
+      console.error('Erreur EmailJS :', JSON.stringify(err));
+    });
 });
       
 
