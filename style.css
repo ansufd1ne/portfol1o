@@ -206,8 +206,15 @@ body {
   .about h2 {
     font-size: 2.2rem;         /* Taille du titre */
     margin-bottom: 30px;       /* Espace sous le titre */
-    color: #38bdf8;            /* Bleu clair pour l'accent visuel */
+    color: #f1f5f9;            /* Bleu clair pour l'accent visuel */
     font-weight: 700;          /* Gras */
+  }
+  .about-divider {
+    width: 100px;             /* Largeur de la ligne */
+    height: 3px;              /* Hauteur de la ligne */
+    background-color: #38bdf8; /* Couleur de la ligne */
+    border: none;             /* Pas de bordure */
+    margin: 0 auto 40px;     /* Centre la ligne et espace en bas */
   }
   
   .about p {
@@ -230,9 +237,17 @@ body {
   .projects h2 {
     font-size: 2.2rem;
     margin-bottom: 40px;
-    color: #38bdf8;            /* Accent bleu clair */
+    color: #f1f5f9;            /* Accent bleu clair */
     font-weight: 700;
     text-align: center; /* Centre le titre */
+  }
+
+  .projects-divider {
+    width: 100px; /* Largeur de la ligne */
+    height: 3px; /* Hauteur de la ligne */
+    background-color: #38bdf8; /* Couleur de la ligne */
+    border: none; /* Pas de bordure */
+    margin: 0 auto 40px; /* Centre la ligne et espace en bas */
   }
 
 
@@ -405,9 +420,16 @@ body {
 
 .contact h2 {
   font-size: 2.5rem; /* Taille du titre */
-  margin-bottom: 60px; /* Espace sous le titre */
-  color: #38bdf8; /* Accent bleu clair */
+  margin-bottom: 50px; /* Espace sous le titre */
+  color: #f1f5f9; /* Accent blanc */
   font-weight: 700; /* Gras */
+}
+.contact-divider {
+  width: 100px; /* Largeur de la ligne */
+  height: 3px; /* Hauteur de la ligne */
+  background-color: #38bdf8; /* Couleur de la ligne */
+  border: none; /* Pas de bordure */
+  margin: 0 auto 40px; /* Centre la ligne et espace en bas */
 }
 
 /* Container flex pour le formulaire et les infos */
