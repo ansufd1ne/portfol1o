@@ -1,331 +1,597 @@
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0; /* pas de marge */
+    padding: 0; /* pas de padding */
+    box-sizing: border-box; /* box-sizing pour inclure la bordure et le padding dans la largeur et la hauteur */
 }
-
-html {
-    scroll-behavior: smooth;
-}
-
-/*
-Praramètre du corps de la page
-*/
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #111;
-    color: #fff;
-    
+    font-family: 'Inter', sans-serif; /* police Inter */
 }
 
-
-.logo a{
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Arial', sans-serif;
-}
-
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: none;
-    z-index: 998;
-}
-
-
-
-/*
-Allignement des elt de la barre de navigation
-Par défaut : affichage verticale
-*/
-.navbar {
-    background-color: #000;
-    display: flex;
-    justify-content: space-between; /* Espace entre les éléments */
-    align-items: center;
-    padding: 15px 20px;
-    position: fixed; /* Fixe la barre */
-    width: 100%;      /* Prend toute la largeur */
-    top: 0;           /* Collée en haut */
-    z-index: 1000;    /* Pour passer devant les autres éléments */
-    box-sizing: border-box; /* Inclut le padding dans la largeur */
-    height: 60px; /* Hauteur de la barre */
-}
-
-/*
-Définition du style d'affichage de la barre de navigation
-*/
-.side-menu-links {
-    list-style: none;
-    margin-top: 40px; /* Juste en dessous de la navbar */
-}
-
-
-/*
-Espacement entre les elt de la barre de navigation
-*/
-.side-menu-links li {
-    margin: 20px 0;
-    text-align: left; /* Alignement à gauche */
-
-}
-
-/*
-Paramétrage des boutons de la barre de navigation
-*/
-.side-menu-links a {
-    color: #000;
-    text-decoration: none;
-    transition: color 0.3s;
-    font-size: 1.5rem;
-    padding: 10px 0;
-}
-
-.menu-toggle {
-    display: none; /* Masqué par défaut */
-}
-
-
-
-/*
-Animation de survol pour les elt de la barre de navigation
-*/
-.side-menu-links a:hover {
-    color: #00aaff;
-}
-
-@media (min-width: 769px) {
-
-    .nav-links {
-        display: flex; /* Affiché sur desktop */
-        flex-direction: row; /* Alignement horizontal */
-        list-style: none; /* Pas de puces */
-        margin: 0; /* Pas d'espacement en haut */
-    }
-
-    .nav-links li {
-        margin-left: 20px; /* Espacement entre les éléments */
-
-    }
-
-    .nav-links a {
-        color: #fff; /* Couleur du texte */
-        font-size: 1rem; /* Taille du texte */
-        transition: color 0.3s; /* Transition douce */
-        text-decoration: none; /* Pas de soulignement */
-        padding: 10px 0; /* Espacement interne */
-    }
-
-    .nav-links a:hover {
-        color: #00aaff; /* Couleur au survol */
-    }
-    
-    .side-menu, .overlay, .menu-toggle {
-        display: none; /* Masqué sur desktop */
-    }
-
-}
-
-
-/* Icône menu burger cachée sur desktop */
-
-/* RESPONSIVE pour tablettes et téléphones */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block; /* Affiché sur mobile */
-        cursor: pointer; /* Curseur en main */
-        font-size: 2rem; /* Taille de l'icône */
-        color: #fff; /* Couleur de l'icône */
-    }
-
-    .side-menu {
-        display: none; /* Masqué par défaut */
-        position: fixed;
-        top: 50%; /* Juste en dessous de la navbar */
-        left: 50%;
-        transform: translate(-50%, -50%); /* Centré */
-        width: 80%; /* Prend 90% de la largeur */
-        max-width: 600px; /* Largeur max */
-        height: auto; /* Hauteur auto */
-        background: #fff; /* Fond blanc */
-        border-radius: 10px; /* Coins arrondis */
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        z-index: 999; /* Au-dessus des autres éléments */
-        transition: all 0.3s ease; /* Glissement horizontal */
-        padding: 30px 20px; /* Espacement interne */
-        flex-direction: column; /* Alignement vertical */
-    }
-
-    .side-menu.active {
-        display: flex !important; /* Affiché quand actif */
-    }
-
-    #menuIcon {
-        display: inline-block;
-    }
-
-
-    .overlay {
-        background: rgba(0, 0, 0, 0.5); /* Fond noir transparent */
-    }
-
-    .side-menu-links {
-        display: flex; /* Affiché sur mobile */
-        flex-direction: column; /* Alignement vertical */
-        gap: 16px; /* Espacement entre les éléments */
-        align-items: flex-start; /* Alignement à gauche */
-        margin-top: 30px;
-    }
-    
-    .side-menu-links a {
-        color: #000; /* Couleur du texte */
-        font-size: 1.5rem; /* Taille du texte */
-        padding: 10px 0; /* Espacement interne */
-        text-decoration: none; /* Pas de soulignement */
-    }
-    .side-menu-links.active {
-        display: flex; /* Affiché quand actif */
-    }
-
-    .nav-links {
-        display: none; /* Masqué sur mobile */
-    }
-}
-
-/*
-Paramètre de la page d'acceuil
-*/
-.hero {
-    height: 100vh;
-    display: flex;
+.full-screen {
+    min-height: 100vh;     /* prend au moins toute la hauteur de l’écran */
+    display: flex;         /* permet de centrer le contenu */
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background: 
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('fon.JPG') center/cover no-repeat;
-    text-align: center;
+    padding: 80px 20px;
+  }
+
+/* ===== ANIMATION FADE-IN ===== */
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px); /* Décalé vers le bas au départ */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* Revenu à sa position normale */
+    }
+  }
+  
+  /* Classe à appliquer sur les éléments à animer */
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+/* ====== Navbar ====== */
+
+.navbar {
+    position: fixed; /* position fixe pour garder en haut */
+    top: 0; /* position en haut */
+    left: 0; /* position à gauche */
+    width: 100%; /* largeur 100% */
+    background-color: #0f172a; /* couleur de fond noir */
+    color: #f1f5f9;    /* couleur du texte blanc */
+    display: flex; /* flexbox pour aligner les éléments */
+    justify-content: space-between; /* espace entre les éléments */
+    align-items: center;     /* aligner les éléments au centre */
+    padding: 20px 40px; /* padding de 20px en haut et en bas, 40px à gauche et à droite */
+    z-index: 1000; /* z-index pour être au-dessus des autres éléments */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* ombre portée */
 }
 
-/*
-Modification de la taille titre
-*/
+.logo {
+    font-size: 1.5rem; /* taille de la police */
+    font-weight: bold; /* gras */
+    color: #38bdf8; /* couleur du texte bleu */
+}
+
+.logo a {
+    color: inherit; /* hérite de la couleur du parent */
+    text-decoration: none; /* pas de soulignement */
+}
+
+.nav-links {
+    display: flex; /* flexbox pour aligner les éléments */
+    gap: 20px; /* espace entre les éléments */
+    list-style: none; /* pas de puces */
+    transition: all 0.3s; /* transition pour le menu */
+}
+
+.nav-links a {
+    color: #f1f5f9; /* couleur du texte blanc */
+    text-decoration: none; /* pas de soulignement */
+    font-weight: 500; /* gras */
+    transition: color 0.3s; /* transition pour la couleur */
+}
+
+.nav-links a:hover {
+    color: #38bdf8; /* couleur au survol */
+}
+
+/* Ajoutez ces styles à votre fichier CSS */
+
+/* Style pour l'icône du menu burger */
+.menu-toggle {
+  display: none; /* Caché par défaut sur desktop */
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #f1f5f9;
+}
+
+/* Ajoutez ces styles à votre fichier CSS */
+
+/* Animation pour l'icône du menu */
+.menu-toggle i {
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+/* Effet lors du survol */
+.menu-toggle:hover i {
+  transform: scale(1.1);
+}
+
+/* Media query pour le responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Afficher sur mobile */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px; /* Hauteur de la navbar */
+    left: 0;
+    width: 100%;
+    background-color: #0f172a;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    display: none; /* Caché par défaut */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+  }
+
+  /* Classe pour afficher le menu lorsqu'il est actif */
+  .nav-active {
+    display: flex !important;
+  }
+}
+
+
+/* ====== Hero ====== */
+
+.hero {
+    background-color: #0f172a; /* couleur de fond noir */
+    padding: 120px 20px 100px; /* padding de 120px en haut, 20px à gauche et à droite, 100px en bas */
+    text-align: center; /* centrer le texte */
+    color: #f1f5f9; /* couleur du texte blanc */
+}
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem; /* taille de la police */
+    margin-bottom: 20px; /* marge en bas */
+    font-weight: 700; /* gras */
 }
 
-/*
-Modification de la taille du texte
-*/
+.hero h1 span {
+    color: #38bdf8; /* couleur du texte bleu */
+}
+
 .hero p {
-    font-size: 1.5rem;
-    margin-top: 10px;
+    font-size: 1.2rem; /* taille de la police */
+    margin-bottom: 40px; /* marge en bas */
+    color: #cbd5e1; /* couleur du texte gris clair */
 }
 
-/*
-Paramètredes sections
-*/
-section {
-    padding: 80px 20px;
-    text-align: center;
+.hero-buttons {
+    display: flex; /* flexbox pour aligner les éléments */
+    justify-content: center; /* centrer les éléments */
+    gap: 20px; /* espace entre les éléments */
+    flex-wrap: wrap; /* envelopper les éléments */
 }
 
-/*
-Paramètre des sous titre
-*/
-h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #00aaff;
+.btn-primary {
+    background-color: #38bdf8; /* couleur de fond bleu */
+    color: #0f172a; /* couleur du texte noir */
+    padding: 10px 20px; /* padding de 10px en haut et en bas, 20px à gauche et à droite */
+    border-radius: 5px; /* coins arrondis */
+    border: none; /* pas de bordure */
+    text-decoration: none; /* pas de soulignement */
+    font-weight: 600; /* gras */
+    transition: background-color 0.3s; /* transition pour la couleur */
 }
 
-/*
-Paramètre du bolck de projets
-*/
-.project-card {
-    background-color: #222;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 600px;
-    border-radius: 10px;
+.btn-primary:hover {
+    background-color: #0ea5e9; /* couleur au survol */
 }
 
-/*
-Effet hover sur les projets
-*/
-.project-card:hover {
-    background-color: #333;
-    transform: scale(1.02);
-    transition: 0.3s;
+.btn-secondary {
+    background-color: transparent; /* transparent */
+    color: #f1f5f9; /* couleur du texte blanc */
+    padding: 10px 20px; /* padding de 10px en haut et en bas, 20px à gauche et à droite */
+    border-radius: 5px; /* coins arrondis */
+    border: 2px solid #38bdf8; /* bordure bleu */
+    text-decoration: none; /* pas de soulignement */
+    font-weight: 600; /* gras */
+    transition: background-color 0.3s, color 0.3s; /* transition pour la couleur */
 }
 
-.project-img {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.btn-voir-site {
-    display: inline-block;
-    padding: 10px 20px;
-    border: 2px solid #fff;
-    background-color: #fff;
-    color: #000;
-    text-decoration: none;
-    border-radius: 45px;
-    transition: all 0.3s ease;
-    margin-top: 10px;
-}
-
-.btn-voir-site:hover {
-    background-color: #00aaff;
-    color: #fff;
-    border: 2px solid #00aaff;
-}
-
-/*
-Suppresion des points de la liste
-*/
-.skills ul {
-    list-style: none;
-}
-
-/*
-Paramètre de la marge
-*/
-.skills li {
-    margin: 10px 0;   
+.btn-secondary:hover {
+    background-color: #38bdf8; /* couleur au survol */
+    color: #0f172a; /* couleur du texte noir */
 }
 
 
-/*
-Paramètre du footer
-*/
+/* ===== SECTION À PROPOS ===== */
+.about {
+    background-color: #1e293b; /* Fond bleu foncé, légèrement différent du fond global */
+    padding: 100px 20px;       /* Espace intérieur en haut/bas et sur les côtés */
+    text-align: center;        /* Centre le texte horizontalement */
+    color: #f1f5f9;            /* Couleur de texte principale (blanc cassé) */
+  }
+  
+  .about h2 {
+    font-size: 2.2rem;         /* Taille du titre */
+    margin-bottom: 30px;       /* Espace sous le titre */
+    color: #38bdf8;            /* Bleu clair pour l'accent visuel */
+    font-weight: 700;          /* Gras */
+  }
+  
+  .about p {
+    max-width: 800px;          /* Limite la largeur du paragraphe pour un bon confort de lecture */
+    margin: 0 auto;            /* Centre horizontalement */
+    font-size: 1.1rem;         /* Taille du texte */
+    line-height: 1.8;          /* Hauteur de ligne pour l’aération du texte */
+    color: #cbd5e1;            /* Gris clair lisible sur fond sombre */
+  }
+
+  /* ===== SECTION PROJETS ===== */
+.projects {
+    background-color: #0f172a; /* Fond principal sombre pour garder l'unité visuelle */
+    padding: 100px 20px;       /* Espacement interne haut/bas et latéral */
+    text-align: center;        /* Centrage des titres */
+    color: #f1f5f9;            /* Couleur de texte principale */
+  }
+  
+  /* Titre de la section */
+  .projects h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: #38bdf8;            /* Accent bleu clair */
+    font-weight: 700;
+    text-align: center; /* Centre le titre */
+  }
+
+
+/* Grille de produits responsive */
+.projects-grid {
+  display: grid; /* Affichage en grille */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Grille responsive */
+  gap: 2rem; /* Espace entre les produits */
+  max-width: 80%; /* Largeur maximale de la grille */
+  margin: 0 auto; /* Centre la grille */
+  padding: 20px; /* Espacement interne */
+  overflow: hidden; /* Cache le débordement */
+  animation: fadeIn 0.8s ease-out forwards; /* Animation d'apparition */
+}
+
+/* Carte produit */
+.projects-card {
+  background-color: #ffffff; /* Fond blanc */
+  border-radius: 12px; /* Coins arrondis */
+  overflow: hidden; /* Cache le débordement */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); /* Ombre */
+  transition: transform 0.3s ease; /* Transition pour l'effet de survol */
+}
+
+.projects-card:hover {
+  transform: scale(1.03);
+}
+
+/* Image du projet */
+.projects-card img {
+  width: 100%; /* Prend toute la largeur */
+  height: 200px; /* Hauteur de l'image */
+  overflow: hidden; /* Cache le débordement */
+  border-radius: 12px 12px 0 0; /* Coins arrondis en haut */
+}
+
+
+
+/* Infos sous l’image */
+
+.projects-info {
+  padding: 1rem; /* Espacement interne */
+  text-align: center; /* Centre le texte */
+}
+
+.projects-info h3 {
+  font-size: 1.125rem; /* Taille du titre */
+  font-weight: 600; /* Gras */
+  color: #0f172a; /* Couleur du texte sombre */
+  margin-bottom: 0.5rem; /* Espace sous le titre */
+}
+
+.projects-info p {
+  font-size: 0.875rem; /* Taille du texte */
+  color: #64748b; /* Couleur du texte gris */
+  margin-bottom: 1rem; /* Espace sous le texte */
+}
+.projects-info a {
+  display: inline-block; /* Affichage en bloc */
+  background-color: #38bdf8; /* Couleur de fond bleu */
+  color: #0f172a; /* Couleur du texte sombre */
+  padding: 0.5rem 1rem; /* Espacement interne */
+  border-radius: 45px; /* Coins arrondis */
+}
+
+  
+  /* ===== SECTION COMPÉTENCES ===== */
+.skills {
+    background-color: #1e293b; /* Fond légèrement plus clair que le fond global */
+    padding: 100px 20px;       /* Espacement interne haut/bas et latéral */
+    text-align: center;        /* Centre le texte globalement */
+    color: #f1f5f9;
+  }
+  
+  /* Titre de la section */
+  .skills h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: #f1f5f9;            /* Accent visuel bleu clair */
+    font-weight: 700;
+  }
+
+  .skills-divider {
+    width: 100px; /* Largeur de la ligne */
+    height: 3px; /* Hauteur de la ligne */
+    background-color: #38bdf8; /* Couleur de la ligne */
+    border: none; /* Pas de bordure */
+    margin: 0 auto 40px; /* Centre la ligne et espace en bas */
+  }
+  
+  /* Grille des cartes de compétences */
+  .skills-grid {
+    display: grid; /* Affichage en grille */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Grille responsive */
+    gap: 2rem; /* Espace entre les cartes */
+    max-width: 80%; /* Largeur maximale de la grille */
+    margin: 0 auto; /* Centre la grille */
+    padding: 20px; /* Espacement interne */
+    overflow: hidden; /* Cache le débordement */
+    animation: fadeIn 0.8s ease-out forwards; /* Animation d'apparition */
+  }
+
+/* Cartes de compétences */
+.skills-card {
+  background-color: #0f172a; /* Fond légèrement plus clair que le fond global */
+  padding: 20px; /* Espacement interne */
+  border-radius: 12px; /* Coins arrondis */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre */
+  transition: transform 0.3s ease; /* Transition pour l'effet de survol */
+}
+
+.skills-card:hover {
+  transform: translateY(-5px); /* Légère translation vers le haut au survol */
+}
+
+.skills-card h3{
+  font-size: 1.3rem; /* Taille du titre */
+  font-weight: 700; /* Gras */
+  color: #f1f5f9; /* Couleur du texte blanc */
+  margin-bottom: 15px; /* Espace sous le titre */
+}
+
+/* Liste des compétences */
+.skills-card ul {
+  list-style: none; /* Pas de puces */
+  padding: 0; /* Pas de padding */
+}
+
+.skills-card li {
+  display: flex; /* Flexbox pour aligner les éléments */
+  align-items: center; /* Aligne les éléments au centre */
+  font-size: 1rem; /* Taille du texte */
+  color: #cbd5e1; /* Couleur du texte gris clair */
+  margin-bottom: 10px; /* Espace sous chaque compétence */
+  padding: 8px; /* Espacement interne */
+  background-color: #1e293b; /* Fond sombre pour chaque compétence */
+  border-radius: 8px; /* Coins arrondis */
+  transition: all 0.3s; /* Transition pour l'effet de survol */
+}
+
+.skills-card li:hover {
+  background-color: #38bdf8; /* Fond bleu au survol */
+  color: #0f172a; /* Texte sombre au survol */
+  transform: translateY(-2px); /* Légère translation vers le haut au survol */
+  cursor: pointer; /* Curseur pointeur au survol */
+}
+
+/* Icône bleue (petit point) */
+.skills-card li i {
+  font-size: 0.5rem; /* Taille de l'icône */
+  color: #38bdf8; /* Couleur de l'icône bleu */
+  margin-right: 10px; /* Espace à droite de l'icône */ 
+  transition: all 0.3s; /* Transition pour l'effet de survol */
+}
+
+.skills-card li:hover i {
+  transform: scale(1.2); /* Agrandissement de l'icône au survol */
+  color: #0f172a; /* Couleur sombre au survol */
+  cursor: pointer; /* Curseur pointeur au survol */
+}
+
+
+ /* ===== SECTION CONTACT ===== */
+.contact {
+  background-color: #0f172a; /* Fond sombre comme dans la capture */
+  padding: 100px 20px; /* Espace intérieur haut/bas et latéral */
+  text-align: center; /* Centre le texte */
+  color: #f1f5f9; /* Couleur de texte principale (blanc cassé) */
+}
+
+.contact h2 {
+  font-size: 2.5rem; /* Taille du titre */
+  margin-bottom: 60px; /* Espace sous le titre */
+  color: #38bdf8; /* Accent bleu clair */
+  font-weight: 700; /* Gras */
+}
+
+/* Container flex pour le formulaire et les infos */
+.contact-container {
+  display: flex; /* Flexbox pour aligner les éléments */
+  background-color: #111827; /* Fond légèrement plus clair */
+  border-radius: 16px; /* Coins arrondis */
+  overflow: hidden;   /* Cache le débordement */
+  width: 80%; /* Largeur de 80% */
+  margin: 0 auto; /* Centre la section */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Ombre */
+}
+
+/* Colonne d'informations de contact */
+.contact-info {
+  padding: 40px; /* Espace intérieur */
+  width: 40%; /* Largeur de 40% */
+  background-color: #111827; /* Fond légèrement plus clair que le côté formulaire */
+}
+
+.contact-info h3 {
+  font-size: 1.8rem; /* Taille du titre */
+  color: #38bdf8; /* Couleur du texte bleu */
+  margin-bottom: 20px; /* Espace sous le titre */
+  text-align: left; /* Aligne le texte à gauche */
+}
+
+.contact-text {
+  margin-bottom: 30px; /* Espace sous le texte */
+  line-height: 1.6; /* Hauteur de ligne pour l’aération du texte */
+  color: #e2e8f0; 
+  text-align: left;
+}
+
+/* Détails de contact avec icônes */
+.contact-details {
+  margin-bottom: 30px;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.icon-container {
+  width: 40px;
+  height: 40px;
+  background-color: #1e293b;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+.contact-detail i {
+  color: #38bdf8;
+  font-size: 1.2rem;
+}
+
+/* Icônes sociales */
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  width: 45px;
+  height: 45px;
+  background-color: #1e293b;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.social-icons a:hover {
+  transform: translateY(-5px);
+  background-color: #38bdf8;
+}
+
+.social-icons i {
+  color: #f1f5f9;
+  font-size: 1.4rem;
+}
+
+.social-icons a:hover i {
+  color: #0f172a;
+}
+
+/* Formulaire de contact */
+.contact-form {
+  padding: 40px;
+  width: 60%;
+  background-color: #1e293b; /* Plus clair que le côté info */
+}
+
+.form-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #cbd5e1;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #111827; /* Champ foncé comme sur la capture */
+  border: none;
+  border-radius: 8px;
+  color: #f1f5f9;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  transition: box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #38bdf8;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Bouton d'envoi */
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #38bdf8;
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #0ea5e9;
+}
+
+/* Responsive pour tablettes et mobiles */
+@media (max-width: 992px) {
+  .contact-container {
+      flex-direction: column;
+      width: 90%;
+  }
+  
+  .contact-info,
+  .contact-form {
+      width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact h2 {
+      font-size: 2rem;
+  }
+  
+  .contact-info,
+  .contact-form {
+      padding: 30px 20px;
+  }
+}
+  /* ===== FOOTER ===== */
 footer {
-    background-color: #000;
+    background-color: #0f172a;
     text-align: center;
     padding: 20px;
-    margin-top: 40px;
-}
-
-#menuIcon {
-    transition: transform 0.3s ease;
-}
-
-body.menu-open #menuIcon {
-    transform: rotate(90deg);
-}
-.menu-toggle.active {
-    display: block;
-}
-
-.side-menu.active {
-    display: flex;
-}
-
+    color: #64748b; /* gris bleuté neutre */
+    font-size: 0.9rem;
+  }

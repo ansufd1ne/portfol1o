@@ -1,143 +1,271 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- icône -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="img/ansuf.png" type="image/png">
     <title>Ansufdine Ousseni - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Pour les icônes -->
 </head>
 <body>
-    <header>
+
+    <!-- En-tête -->
+     <header>
         <nav class="navbar">
-            <div class="logo"><a href="#accueil"><h3>Ansufdine Ousseni</h3></a></div>
-
-            <!-- icône menu burger -->
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars" id="menuIcon"></i>
-            </div>
-
+            <div class="logo"><a href="#accueil">Ansufdine Ousseni</a></div>
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#a-propos">À propos</a></li>
                 <li><a href="#projets">Projets</a></li>
                 <li><a href="#competences">Compétences</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact">Contacts</a></li>
             </ul>
+            <div class="menu-toggle" id="menuToggle">
+              <i class="fas fa-bars"></i>
+          </div>
         </nav>
-    </header>
-    <!-- Menu latéral qui s'ouvre -->
-    <div class="overlay" id="overlay"></div>
+     </header>
 
-    <div class="side-menu" id="sideMenu">
-      
-       <!-- Listes des liens -->
-   <ul class="side-menu-links">
-       <li> <a href="#accueil">Accueil</a></li>
-       <li><a href="#a-propos">À propos</a></li>
-       <li><a href="#projets">Projets</a></li>
-       <li><a href="#competences">Compétences</a></li>
-       <li><a href="#contact">Contact</a></li>
-   </ul>
-    </div>
-    <main>
-        <!-- Page d'accueil -->
-        <section id="accueil" class="hero">
-            <h1>Je suis Ansufdine Ousseni</h1>
-            <p>Étudiant en Informatique & Entrepreneur</p>
-        </section>
-    
-         <!-- Page à propos -->
-        <section id="a-propos" class="about">
-            <h2>À propos de moi</h2>
-            <p>Étudiant en BUT Informatique à l’IUT d’Annecy, je suis animé par la passion du développement web, des bases de données et de l’entrepreneuriat. Déterminé à exceller autant dans l’ingénierie que dans le monde des affaires, je construis des projets concrets pour renforcer mes compétences, donner du sens à mon apprentissage et avancer vers mes ambitions.</p>
-        </section>
-    
-         <!-- Page Projets -->
-        <section id="projets" class="projects">
-            <h2>Mes projets</h2>
-            <div class="project-card">
-                <h3>Création de la boutique Mwoibaco</h3>
-                <p>Conception de planners et calendriers numériques. Gestion Shopify, marketing, branding.</p>
-                <img src="img/mwoibaco-screen.png" alt="Mwoibaco" class="project-img">
-                <a href="https://mwoibaco.com" target="_blank" class="btn-voir-site">Voir le site</a>
+     <main>
+
+        <!-- Hero -->
+        <section id="accueil" class="hero fade-in full-screen">
+            <h1>Je suis <span>Ansufdine Ousseni</span></h1>
+            <p>Étudiant en informatique & Entrepreneur</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Me contacter</a>
+                <a href="#projets" class="btn-secondary">Voir mes projets</a>
             </div>
-            <!-- Tu peux dupliquer ce bloc pour d’autres projets -->
         </section>
-    
-         <!-- Page Compétences -->
-        <section id="competences" class="skills">
-            <h2>Compétences</h2>
-            <ul>
-                <li>HTML / CSS</li>
-                <li>PHP / SQL / C#</li>
-                <li>Visual Studio Code, pgAdmin, Canva Pro, Notion, Figma</li>
-                <li>Gestion de projet, organisation, rigueur</li>
-            </ul>
-        </section>
-    
-         <!-- Page Contact -->
-        <section id="contact" class="contact">
-            <h2>Contact</h2>
-            <p><i class="fas fa-envelope"></i> Email : ansufdine.ousseni@etu.univ-smb.fr</p>
-            <p><i class="fas fa-map-marker-alt"></i> Localisation : Annecy, France</p>
-        </section>
-    
-    </main>
-    
-     <!-- Footer -->
-    <footer>
-        <p>© 2025 Ansufdine Ousseni. Tous droits réservés.</p>
-    </footer>
 
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const menuIcon = document.getElementById('menuIcon');
-        const sideMenu = document.getElementById('sideMenu');
-        const overlay = document.getElementById('overlay');
-    
-        function openMenu() {
-            sideMenu.classList.add('active');
-            overlay.style.display = 'block';
-            menuIcon.classList.remove('fa-bars');
-            menuIcon.classList.add('fa-times');
-            document.body.classList.add('menu-open');
-        }
-    
-        function closeMenu() {
-            sideMenu.classList.remove('active');
-            overlay.style.display = 'none';
-            menuIcon.classList.remove('fa-times');
-            menuIcon.classList.add('fa-bars');
-            document.body.classList.remove('menu-open');
-        }
-    
-        function toggleMenu() {
-            if (sideMenu.classList.contains('active')) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        }
-    
-        // Clic sur menu burger ou croix
-        menuToggle.addEventListener('click', toggleMenu);
-        menuIcon.addEventListener('click', toggleMenu);
-    
-        // Clic sur l'overlay = fermeture
-        overlay.addEventListener('click', closeMenu);
-    
-        // 🔐 Sécurité : fermer le menu au chargement
-        window.addEventListener('DOMContentLoaded', () => {
-        sideMenu.classList.remove('active');
-        overlay.style.display = 'none';
-        menuIcon.classList.remove('fa-times');
+        <!-- À propos -->
+        <section id="a-propos" class="about fade-in full-screen">
+            <h2>À propos</h2>
+            <p>Étudiant en informatique, je consacre mon temps libre à apprendre, découvrir et consolider aussi bien ce que je viens de voir que ce que j’ai déjà étudié.
+                Je pense que nous vivons dans un monde de requins, où il faut savoir montrer de quoi on est capable si l’on veut prétendre à une place.
+                Par conséquent, vous trouverez ici l’essentiel de ce que j’ai entrepris et continue de construire jusqu’à présent.</p>
+        </section>
+
+        <!-- Projets -->
+        <section id="projets" class="projects fade-in full-screen">
+            <h2 class="fade-in">Mes projets</h2>
+
+            
+            <div class="projects-grid">
+              <!-- Projets 1-->
+                <div class="projects-card">
+                    <img src="img/p1.jpg" alt="Projet 1">
+                    <div class="projects-info">
+                      <h3>Projet 1</h3>
+                      <p>Description du projet 1.</p>
+                      <a href="#" class="btn-primary">Voir le projet</a>
+                    </div>
+                    
+                </div>
+
+                <!-- Projets 2-->
+                <div class="projects-card">
+                    <img src="img/p2.jpg" alt="Projet 2">
+                    <div class="projects-info">
+                      <h3>Projet 2</h3>
+                      <p>Description du projet 2.</p>
+                      <a href="#" class="btn-primary">Voir le projet</a>
+                    </div>
+                    
+                </div>
+                
+                <!-- Projets 3-->
+                <div class="projects-card">
+                    <img src="img/p3.jpg" alt="Projet 3">
+                    <div class="projects-info">
+                      <h3>Projet 3</h3>
+                      <p>Description du projet 3.</p>
+                      <a href="#" class="btn-primary">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Catres des projets -->
+        </section>
+
+
+        <!-- Compétences -->
+        <section id="competences" class="skills fade-in full-screen">
+            <h2>Compétences</h2>
+
+            <!-- blocks des compétences -->
+             <hr class="skills-divider">
+
+             <div class="skills-grid">
+              <div class="skills-card">
+                <h3>Développement</h3>
+                <ul>
+                  <li><i class="fas fa-circle"></i>HTML</li>
+                  <li><i class="fas fa-circle"></i>CSS</li>
+                  <li><i class="fas fa-circle"></i>PHP</li>
+                  <li><i class="fas fa-circle"></i>SQL</li>
+                  <li><i class="fas fa-circle"></i>PYTHON</li>
+                </ul>
+              </div>
+
+              <div class="skills-card">
+                <h3>Outil</h3>
+                <ul>
+                  <li><i class="fas fa-circle"></i>Visual Studio Code</li>
+                  <li><i class="fas fa-circle"></i>pgAdmin</li>
+                  <li><i class="fas fa-circle"></i>PowerBi</li>
+                  <li><i class="fas fa-circle"></i>Canva pro</li>
+                  <li><i class="fas fa-circle"></i>Notion</li>
+                  <li><i class="fas fa-circle"></i>Figma</li>
+                </ul>
+              </div>
+
+              <div class="skills-card">
+                <h3>Soft Skills</h3>
+                <ul>
+                  <li><i class="fas fa-circle"></i>Gestion de projet</li>
+                  <li><i class="fas fa-circle"></i>Organisation</li>
+                  <li><i class="fas fa-circle"></i>Rigueur</li>
+                  <li><i class="fas fa-circle"></i>Travail d'équipe</li>
+                  <li><i class="fas fa-circle"></i>Communication</li>
+                </ul>
+              </div>
+
+             </div>
+        </section>
+
+        <!-- Contact -->
+<section id="contact" class="contact fade-in full-screen">
+  <h2>Contact</h2>
+  
+  <div class="contact-container">
+      <div class="contact-info">
+          <h3>Restons en contact</h3>
+          <p class="contact-text">N'hésitez pas à me contacter pour discuter de projets, d'opportunités ou simplement pour échanger.</p>
+          
+          <div class="contact-details">
+              <div class="contact-detail">
+                  <div class="icon-container">
+                      <i class="fas fa-envelope"></i>
+                  </div>
+                  <div>
+                      <p>Email</p>
+                      <p><strong>ansufdine.company@gmail.com</strong></p>
+                  </div>
+              </div>
+              
+              <div class="contact-detail">
+                  <div class="icon-container">
+                      <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div>
+                      <p>Localisation</p>
+                      <p><strong>Annecy, France</strong></p>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="social-icons">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="www.linkedin.com/in/ansufdine-ousseni-04ab91362" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+      </div>
+      
+      <div class="contact-form">
+          <form>
+              <div class="form-group">
+                  <label for="name">Nom</label>
+                  <input type="text" id="name" placeholder="Votre nom" required>
+              </div>
+              
+              <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" placeholder="votre@email.com" required>
+              </div>
+              
+              <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" placeholder="Votre message..." rows="5" required></textarea>
+              </div>
+              
+              <button type="submit" class="btn-submit">Envoyer</button>
+          </form>
+      </div>
+  </div>
+</section>
+            
+     </main>
+
+    <!-- Footer -->
+     <footer class="fade-in">
+        <p>© 2025 Ansufdine Ousseni. Tous droits réservés.</p>
+     </footer>
+
+     <!-- Scripts -->
+     <script>
+      // Menu hamburger
+
+      // Sélectionner les éléments nécessaires
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.querySelector('.nav-links');
+const navItems = document.querySelectorAll('.nav-links li a');
+const menuIcon = menuToggle.querySelector('i'); // Sélectionne l'icône à l'intérieur du bouton
+
+// Fonction pour basculer l'icône
+function toggleMenuIcon() {
+  // Si l'icône actuelle est un hamburger, la changer en croix
+  if (menuIcon.classList.contains('fa-bars')) {
+    menuIcon.classList.remove('fa-bars');
+    menuIcon.classList.add('fa-xmark'); // 'fa-xmark' est l'icône de croix dans Font Awesome 6
+  } else {
+    // Sinon, la changer en hamburger
+    menuIcon.classList.remove('fa-xmark');
+    menuIcon.classList.add('fa-bars');
+  }
+}
+
+// Basculer le menu et l'icône quand on clique sur le bouton
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('nav-active');
+  toggleMenuIcon(); // Change l'icône
+});
+
+// Fermer le menu et restaurer l'icône quand on clique sur un lien
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    // Vérifie si nous sommes en mode mobile (menu burger visible)
+    if (window.getComputedStyle(menuToggle).display !== 'none') {
+      navLinks.classList.remove('nav-active');
+      // S'assurer que l'icône revient à l'état de hamburger
+      if (menuIcon.classList.contains('fa-xmark')) {
+        menuIcon.classList.remove('fa-xmark');
         menuIcon.classList.add('fa-bars');
-        document.body.classList.remove('menu-open');
+      }
+    }
+  });
+});
+      
+
+        const fadeIns = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // déclenche qu'une seule fois
+              }
+            });
+          },
+          {
+            threshold: 0.1, // quand 10% de l'élément est visible
+          }
+        );
+      
+        fadeIns.forEach(el => {
+          observer.observe(el);
         });
-    </script>
+      </script>
+    
 </body>
 </html>
