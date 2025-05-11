@@ -4,6 +4,10 @@
     box-sizing: border-box; /* box-sizing pour inclure la bordure et le padding dans la largeur et la hauteur */
 }
 
+html {
+    scroll-behavior: smooth; /* défilement fluide */  
+}
+
 body {
     font-family: 'Inter', sans-serif; /* police Inter */
 }
