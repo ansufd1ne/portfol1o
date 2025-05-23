@@ -621,3 +621,59 @@ footer {
     color: #64748b; /* gris bleuté neutre */
     font-size: 0.9rem;
   }
+
+
+
+  /*=====MENTION LÉGALES=====*/
+
+  .mentions-body {
+    background-color: #0f172a;
+    color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.8;
+    padding: 40px 20px;
+  }
+
+
+  .mentions-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #1e293b;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  h1 {
+    color: #38bdf8;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  h2 {
+    color: #38bdf8;
+    font-size: 1.3rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  p, ul, li {
+    font-size: 1rem;
+    color: #cbd5e1;
+  }
+
+  a {
+    color: #38bdf8;
+    text-decoration: none;
+  }
+
+  .mentions-container a:hover {
+    text-decoration: underline;
+  }
+
+  .update-date {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    text-align: right;
+  }
